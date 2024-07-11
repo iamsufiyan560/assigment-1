@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .checkbox-container {
+    @apply relative inline-flex items-center cursor-pointer;
+  }
+
+  .checkbox-container input {
+    @apply opacity-0 w-0 h-0;
+  }
+
+  .checkbox-custom {
+    @apply w-5 h-5 border-2 border-gray-300 rounded-sm flex items-center justify-center transition-colors;
+  }
+
+  .checkbox-custom::before {
+    content: "✓";
+    @apply text-transparent text-sm;
+  }
+
+  .checkbox-container:hover .checkbox-custom::before,
+  .checkbox-container:hover .checkbox-custom {
+    @apply text-[#E3E3E3] border-gray-500;
+  }
+
+  .checkbox-container input:checked + .checkbox-custom {
+    @apply bg-blue-600 border-blue-600;
+  }
+
+  .checkbox-container input:checked + .checkbox-custom::before {
+    @apply text-white;
+  }
+
+  .hover-highlight:hover .checkbox-custom::before {
+    @apply text-[#E3E3E3];
+  }
+
+  .hover-highlight:hover .checkbox-custom {
+    @apply border-gray-500;
+  }
+}
